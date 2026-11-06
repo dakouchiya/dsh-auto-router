@@ -1,0 +1,19 @@
+# Shipped defaults for the published package.
+#
+# The source tree's cordis.patch.yml is the author's own profile layer and is
+# not shipped. This file is what users get: the row is inserted with a small,
+# portable config.
+#
+# Models named below come from the plugin's built-in defaults and are DeepSeek
+# names, because a stock DeepSeek Harness profile exposes them. On any other
+# provider set `provider` and the tier models here or in Settings; a model that
+# cannot be resolved leaves the current configuration untouched instead of
+# sending an invalid request.
+- insert:
+    - id: auto-router
+      name: dsh-auto-router
+      config:
+        enabled: true
+        dryRun: false
+        mode: balanced
+        logDecisions: true
