@@ -1,0 +1,65 @@
+{
+  "name": "dsh-auto-router",
+  "version": "1.1.0",
+  "type": "module",
+  "description": "Per-turn model and reasoning-effort routing for DeepSeek Harness: classify what the turn asks, switch provider/model/reasoningEffort, show the tier in the composer, and re-route mid-turn.",
+  "license": "MIT",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "model-routing",
+    "auto-router",
+    "reasoning-effort",
+    "model-selection"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dakouchiya/dsh-auto-router.git"
+  },
+  "homepage": "https://github.com/dakouchiya/dsh-auto-router#readme",
+  "bugs": {
+    "url": "https://github.com/dakouchiya/dsh-auto-router/issues"
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.1 <0.2.2-0 || >=0.2.2-0 <0.3.0-0"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./config": "./config.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "config.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "assets/icon-180.png",
+    "locale/*.json",
+    "test/*.mjs",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "private": false
+}
