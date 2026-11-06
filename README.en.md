@@ -16,8 +16,12 @@ read-only and never writes into the session; every decision is appended to
 ## Install
 
 ```sh
-dsh plugin --profile <profile> add dsh-auto-router
+dsh plugin --profile <profile> add https://github.com/dakouchiya/dsh-auto-router/releases/download/v1.1.0/dsh-auto-router-1.1.0.tgz
 ```
+
+Or download the same `.tgz` and install it from the plugin manager. Not published
+to npm yet; once it is, `dsh plugin --profile <profile> add dsh-auto-router`
+works as well.
 
 The settings row accepts the same configuration as the YAML below; the four
 common switches (`enabled`, `dryRun`, `mode`, `logDecisions`) are also exposed
