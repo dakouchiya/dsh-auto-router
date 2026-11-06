@@ -10,10 +10,12 @@
 ## 安装
 
 ```sh
-dsh plugin --profile <profile> add dsh-auto-router
+dsh plugin --profile <profile> add https://github.com/dakouchiya/dsh-auto-router/releases/download/v1.1.0/dsh-auto-router-1.1.0.tgz
 ```
 
-也可以在 **设置 → 插件 → 发现** 里搜索 `dsh-auto-router` 一键安装。装完到 **设置 → 插件** 里能看到四个常用开关（`enabled` / `dryRun` / `mode` / `logDecisions`）；完整配置仍写在 profile 的 `cordis.patch.yml`（见下文）。
+也可以下载同一个 tgz，在插件管理里从本地包装入。尚未发布到 npm；发布后可以直接 `dsh plugin --profile <profile> add dsh-auto-router`。
+
+装完到 **设置 → 插件** 里能看到四个常用开关（`enabled` / `dryRun` / `mode` / `logDecisions`）；完整配置仍写在 profile 的 `cordis.patch.yml`（见下文）。
 
 > 随包默认用的是 DeepSeek 内置模型名（`deepseek-flash` / `deepseek-v4-pro`）。如果你用的是别的 provider，把 `provider` 和五档 `model` 改成宿主里真实存在的 id 即可；解析不到的模型会保持当前配置不变，不会发出非法请求。
 
