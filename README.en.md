@@ -16,7 +16,7 @@ read-only and never writes into the session; every decision is appended to
 ## Install
 
 ```sh
-dsh plugin --profile <profile> add https://github.com/dakouchiya/dsh-auto-router/releases/download/v1.1.0/dsh-auto-router-1.1.0.tgz
+dsh plugin --profile <profile> add https://github.com/dakouchiya/dsh-auto-router/releases/download/v1.1.1/dsh-auto-router-1.1.1.tgz
 ```
 
 Or download the same `.tgz` and install it from the plugin manager. Not published
@@ -104,7 +104,7 @@ overwrite it):
 ```
 
 `effort` only accepts `off` / `low` / `high` / `max` (whatever the model
-supports); an unsupported level is narrowed along `off→low→high→max`. A model
+supports); an unsupported level is narrowed along `off鈫抣ow鈫抙igh鈫抦ax`. A model
 that cannot be resolved keeps the current config and sends no invalid request.
 
 ## `/route` command
@@ -123,10 +123,10 @@ The first tier is only a starting point. The same cheap model is asked to judge
 `up / down / hold` (with one line of reasoning) at two moments, and the plugin
 moves at most one tier each time:
 
-- **When a tool errors** — the error text is passed to the judging model, which
+- **When a tool errors** 鈥?the error text is passed to the judging model, which
   decides whether the tier was too low or the task itself is the problem (a
   missing file does not raise the tier).
-- **Every `rejudgeEverySteps` steps (default 5)** — a checkpoint looks at how the
+- **Every `rejudgeEverySteps` steps (default 5)** 鈥?a checkpoint looks at how the
   turn is going: smooth and clearly too high goes `down`, stuck goes `up`, and
   "hold" is the default when the model is unsure.
 
@@ -144,12 +144,12 @@ classifier can decide to go lower.
 **Badge in the composer** (`conversation.input.left`) shows the tier and model
 actually in effect, e.g. `standard flash/high`; when a pro upgrade was refused
 or timed out it shows the effective tier and mentions the target on hover; it
-flashes once with `↑`/`↓` when the tier changes mid-turn. Data comes from the
+flashes once with `鈫慲/`鈫揱 when the tier changes mid-turn. Data comes from the
 read-only host route `api/auto-router.state` (1.5 s polling).
 
 **Tail under each reply** (`conversation.chat.turnTail`) opens a per-turn
 breakdown: the five-tier map (read straight from config, zero tokens), the turn
-itself (tier with `→` direction, baseline → actual model, reasoning level and
+itself (tier with `鈫抈 direction, baseline 鈫?actual model, reasoning level and
 where the first decision came from), and the routing overhead (tokens and
 approximate cost of the first classification plus every rejudge, including the
 reason the model gave, plus refused upgrades and the total).
@@ -159,7 +159,7 @@ so the browser picks up the new client module.
 
 ## Storage and archiving
 
-- `turns.jsonl` — active turn records, capped at 2 MB (`history.maxBytes`).
+- `turns.jsonl` 鈥?active turn records, capped at 2 MB (`history.maxBytes`).
   When it grows past the cap, `turns.jsonl` becomes `turns.1.jsonl` and the old
   `turns.1.jsonl` is archived to `archive/turns-<timestamp>.jsonl`.
 - Startup reads only `turns.jsonl` and `turns.1.jsonl`; archives stay untouched.
@@ -181,8 +181,8 @@ tail.
 ## Latency, cost and privacy
 
 - At least one small-model call per turn (first classification, with a one-line
-  reason): roughly 600–900 input tokens and 10–30 output tokens on
-  `deepseek-flash` / `off`, about **¥0.0003–0.0006 per turn**; a tool error or a
+  reason): roughly 600鈥?00 input tokens and 10鈥?0 output tokens on
+  `deepseek-flash` / `off`, about **楼0.0003鈥?.0006 per turn**; a tool error or a
   checkpoint adds one more call of the same size. The pro confirmation itself
   calls no model.
 - The classifier sends the current turn's user text (and the previous two user
@@ -221,4 +221,4 @@ or remove the bundle in the plugin manager.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT 鈥?see [LICENSE](LICENSE).
