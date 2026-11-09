@@ -1,5 +1,5 @@
 /**
- * Client half of @local/dsh-auto-router.
+ * Client half of dsh-auto-router.
  *
  * - A compact chip at the left of the composer tool row shows the tier the Host
  *   picked for this Session's current turn, the concrete model/effort dispatched,
@@ -8,8 +8,16 @@
  *   turn's routing: initial tier + reason, final tier + model/effort, and every
  *   mid-turn tier change with its cause and reason.
  */
-window.__ModuleLoader__.load({
-  id: '@local/dsh-auto-router',
+;(function () {
+  // The module loader rejects a duplicate id, and a second copy of this plugin
+  // (a leftover local bundle beside the published one, or two installs of the
+  // same package) would otherwise take the whole page down at boot. This guard
+  // makes the second evaluation a no-op; the id below is rewritten to the
+  // published package name by scripts/build-release.mjs.
+  if (window.__DSH_AUTO_ROUTER_CLIENT__) return
+  window.__DSH_AUTO_ROUTER_CLIENT__ = true
+  window.__ModuleLoader__.load({
+  id: 'dsh-auto-router',
   factory(require) {
     const React = require('react')
     const h = React.createElement
@@ -651,3 +659,4 @@ window.__ModuleLoader__.load({
     }
   },
 })
+})()
