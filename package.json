@@ -1,6 +1,6 @@
 {
   "name": "dsh-auto-router",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "type": "module",
   "description": "Per-turn model and reasoning-effort routing for DeepSeek Harness: classify what the turn asks, switch provider/model/reasoningEffort, show the tier in the composer, and re-route mid-turn.",
   "license": "MIT",
