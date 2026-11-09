@@ -1245,4 +1245,5 @@ export function apply(ctx, config) {
 // Exported for the offline tests; the plugin runtime only uses `apply`.
 export { classify, normalizeConfig, parseAction, parseClassify, parseRejudge, parseTier, pickEffort, readBatch, readDirective }
 
-export { default as Config } from './config.js'
+import ConfigSchema from './config.js'
+export const Config = ConfigSchema
